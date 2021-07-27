@@ -3,6 +3,7 @@
 echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
 echo "RUN apt-get update"
+echo "RUN apt-get install -y zip unzip"
 
 if [ ! -e $RUBY_VERSION_NUM ] ; then
     echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
@@ -41,6 +42,7 @@ if [ ! -e $CCM ] ; then
     echo "# python no set, skipping ccm"
   else
     echo "RUN pip install ccm"
+    echo "RUN wget https://github.com/zegelin/ccm-extensions/archive/refs/heads/master.zip && unzip master.zip && cd ccm-extensions-master && python setup.py install"
   fi
 fi
 
