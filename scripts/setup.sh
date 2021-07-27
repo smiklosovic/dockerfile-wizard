@@ -71,6 +71,20 @@ else
 fi
 
 read -r -p "
+Do you need CCM in your image? Enter the word 'yes' to install CCM or hit enter to skip installing CCM
+: " CCM
+
+case "$CCM" in
+  yes)
+    perl -i -pe 's/# CCM options: true, false/true/' .circleci/config.yml
+    ;;
+  *)
+    perl -i -pe 's/# CCM options: true, false/false/' .circleci/config.yml
+    perl -i -pe "s/- run: ccm/# - run: ccm/" .circleci/config.yml
+    ;;
+esac
+
+read -r -p "
 Do you need Java in your image? Enter the word 'yes' to install Java 8 or hit enter to skip installing Java
 : " JAVA
 

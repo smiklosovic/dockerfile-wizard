@@ -23,6 +23,8 @@ image_config: &image_config
 
   JAVA: # Java options: true, false
 
+  CCM: # CCM options: true, false
+
   MYSQL_CLIENT: # MySQL options: true, false
 
   POSTGRES_CLIENT: # Postgres options: true, false

@@ -35,6 +35,14 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
     make install"
 fi
 
+if [ ! -e $CCM ] ; then
+  if [ -e $PYTHON_VERSION ] ; then
+    echo "python no set, skipping ccm"
+  fi
+
+  echo "RUN pip install ccm"
+fi
+
 # if [ ! -e $PHP_VERSION_NUM ] ; then
 #     wget "http://php.net/distributions/php-${PHP_VERSION_NUM}.tar.xz"
 # fi
