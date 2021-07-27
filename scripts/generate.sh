@@ -41,7 +41,7 @@ if [ ! -e $CCM ] ; then
   if [ -e $PYTHON_VERSION_NUM ] ; then
     echo "# python no set, skipping ccm"
   else
-    echo "RUN pip install ccm"
+    echo "RUN pip3.7 install ccm"
     echo "RUN wget https://github.com/zegelin/ccm-extensions/archive/refs/heads/master.zip && unzip master.zip && cd ccm-extensions-master && python setup.py install"
   fi
 fi
