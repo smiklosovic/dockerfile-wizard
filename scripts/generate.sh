@@ -38,7 +38,7 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
 fi
 
 if [ ! -e $CCM ] ; then
-  if [ -e $PYTHON_VERSION ] ; then
+  if [ -e $PYTHON_VERSION_NUM ] ; then
     echo "# python no set, skipping ccm"
   else
     echo "RUN pip install ccm"
